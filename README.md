@@ -1,4 +1,4 @@
 ContestTools
 ============
 
-Plugin for Visual Studio for more comfort programming contests experience using C#
+Plugin for Visual Studio for more pleasant participation in programming contests while using C#
