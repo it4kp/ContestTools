@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ContestToolsAddIn</name>
+    </assembly>
+    <members>
+        <member name="T:ContestToolsAddIn.Connect">
+            <summary>
+            Main plugin class
+            </summary>
+        </member>
+        <member name="M:ContestToolsAddIn.Connect.CreateLibrary">
+            <summary>
+            Create in-memory compilation of library
+            </summary>
+        </member>
+        <member name="M:ContestToolsAddIn.Connect.QueryStatus(System.String,EnvDTE.vsCommandStatusTextWanted,EnvDTE.vsCommandStatus@,System.Object@)">
+            <summary>
+            Handle state of commands
+            </summary>
+        </member>
+        <member name="M:ContestToolsAddIn.Connect.Exec(System.String,EnvDTE.vsCommandExecOption,System.Object@,System.Object@,System.Boolean@)">
+            <summary>
+            Exceution of commands
+            </summary>
+        </member>
+        <member name="M:ContestToolsAddIn.Connect.LoadSettings">
+            <summary>
+            Loading settings from file
+            </summary>
+        </member>
+        <member name="M:ContestToolsAddIn.Connect.SaveSettings">
+            <summary>
+            Saving settings to file
+            </summary>
+        </member>
+        <member name="M:ContestToolsAddIn.Connect.UpdateSettings(System.String)">
+            <summary>
+            Update settings
+            </summary>
+        </member>
+        <member name="F:ContestToolsAddIn.Forms.NewProblemForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ContestToolsAddIn.Forms.NewProblemForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ContestToolsAddIn.Forms.NewProblemForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:ContestToolsAddIn.Forms.RecentFilesForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ContestToolsAddIn.Forms.RecentFilesForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ContestToolsAddIn.Forms.RecentFilesForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:ContestToolsAddIn.Forms.SettingsForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ContestToolsAddIn.Forms.SettingsForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ContestToolsAddIn.Forms.SettingsForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:ContestToolsAddIn.Forms.TemplatesForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ContestToolsAddIn.Forms.TemplatesForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ContestToolsAddIn.Forms.TemplatesForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ContestToolsAddIn.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ContestToolsAddIn.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ContestToolsAddIn.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:ContestToolsAddIn.Properties.Resources.accept">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ContestToolsAddIn.Properties.Resources.Connect_CreateLibrary_Error_during_library_compilation__">
+            <summary>
+              Looks up a localized string similar to Error during library compilation: .
+            </summary>
+        </member>
+        <member name="P:ContestToolsAddIn.Properties.Resources.Connect_CreateLibrary_There_were_compilation_errors_of_library__">
+            <summary>
+              Looks up a localized string similar to There were compilation errors of library: .
+            </summary>
+        </member>
+        <member name="P:ContestToolsAddIn.Properties.Resources.Connect_LoadSettings_Error_while_loading_settings_from_">
+            <summary>
+              Looks up a localized string similar to Error while loading settings from .
+            </summary>
+        </member>
+        <member name="P:ContestToolsAddIn.Properties.Resources.Connect_OnConnection_Error_during_initializing_ContestTools_add_in__">
+            <summary>
+              Looks up a localized string similar to Error during initializing ContestTools add-in. .
+            </summary>
+        </member>
+        <member name="P:ContestToolsAddIn.Properties.Resources.delete">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ContestToolsAddIn.Properties.Resources.plus">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>
