@@ -30,9 +30,9 @@
 		{
 			this.label1 = new System.Windows.Forms.Label();
 			this.lvRecentFiles = new System.Windows.Forms.ListView();
+			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btnOk = new System.Windows.Forms.Button();
-			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// label1
@@ -57,6 +57,11 @@
 			this.lvRecentFiles.View = System.Windows.Forms.View.Details;
 			this.lvRecentFiles.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvRecentFiles_MouseDoubleClick);
 			// 
+			// columnHeader1
+			// 
+			this.columnHeader1.Text = "Name";
+			this.columnHeader1.Width = 300;
+			// 
 			// btnCancel
 			// 
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -78,11 +83,6 @@
 			this.btnOk.UseVisualStyleBackColor = true;
 			this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
 			// 
-			// columnHeader1
-			// 
-			this.columnHeader1.Text = "Name";
-			this.columnHeader1.Width = 300;
-			// 
 			// RecentFilesForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -92,6 +92,8 @@
 			this.Controls.Add(this.btnOk);
 			this.Controls.Add(this.lvRecentFiles);
 			this.Controls.Add(this.label1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.MaximizeBox = false;
 			this.Name = "RecentFilesForm";
 			this.Text = "RecentFilesForm";
 			this.Load += new System.EventHandler(this.RecentFilesForm_Load);

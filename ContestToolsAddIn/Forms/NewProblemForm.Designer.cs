@@ -36,6 +36,7 @@
 			this.btnOk = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.panelNewFile = new System.Windows.Forms.Panel();
+			this.btnManageTemplates = new System.Windows.Forms.Button();
 			this.cbTemplate = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.txtProblemName = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
 			this.btnBrowse = new System.Windows.Forms.Button();
 			this.txtFileName = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.btnManageTemplates = new System.Windows.Forms.Button();
 			this.gbProblemSource.SuspendLayout();
 			this.panelNewFile.SuspendLayout();
 			this.panelExistingFile.SuspendLayout();
@@ -52,6 +52,8 @@
 			// 
 			// txtContestName
 			// 
+			this.txtContestName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.txtContestName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
 			this.txtContestName.Location = new System.Drawing.Point(12, 25);
 			this.txtContestName.Name = "txtContestName";
 			this.txtContestName.Size = new System.Drawing.Size(306, 20);
@@ -104,7 +106,7 @@
 			// btnOk
 			// 
 			this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnOk.Location = new System.Drawing.Point(530, 225);
+			this.btnOk.Location = new System.Drawing.Point(433, 225);
 			this.btnOk.Name = "btnOk";
 			this.btnOk.Size = new System.Drawing.Size(75, 23);
 			this.btnOk.TabIndex = 3;
@@ -115,7 +117,7 @@
 			// btnCancel
 			// 
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(622, 225);
+			this.btnCancel.Location = new System.Drawing.Point(525, 225);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.btnCancel.TabIndex = 4;
@@ -131,8 +133,18 @@
 			this.panelNewFile.Controls.Add(this.label2);
 			this.panelNewFile.Location = new System.Drawing.Point(338, 25);
 			this.panelNewFile.Name = "panelNewFile";
-			this.panelNewFile.Size = new System.Drawing.Size(248, 161);
+			this.panelNewFile.Size = new System.Drawing.Size(261, 161);
 			this.panelNewFile.TabIndex = 5;
+			// 
+			// btnManageTemplates
+			// 
+			this.btnManageTemplates.Location = new System.Drawing.Point(19, 122);
+			this.btnManageTemplates.Name = "btnManageTemplates";
+			this.btnManageTemplates.Size = new System.Drawing.Size(193, 24);
+			this.btnManageTemplates.TabIndex = 3;
+			this.btnManageTemplates.Text = "Manage Templates...";
+			this.btnManageTemplates.UseVisualStyleBackColor = true;
+			this.btnManageTemplates.Click += new System.EventHandler(this.btnManageTemplates_Click);
 			// 
 			// cbTemplate
 			// 
@@ -173,7 +185,7 @@
 			this.panelExistingFile.Controls.Add(this.btnBrowse);
 			this.panelExistingFile.Controls.Add(this.txtFileName);
 			this.panelExistingFile.Controls.Add(this.label4);
-			this.panelExistingFile.Location = new System.Drawing.Point(592, 25);
+			this.panelExistingFile.Location = new System.Drawing.Point(338, 25);
 			this.panelExistingFile.Name = "panelExistingFile";
 			this.panelExistingFile.Size = new System.Drawing.Size(261, 161);
 			this.panelExistingFile.TabIndex = 6;
@@ -205,23 +217,13 @@
 			this.label4.TabIndex = 0;
 			this.label4.Text = "File:";
 			// 
-			// btnManageTemplates
-			// 
-			this.btnManageTemplates.Location = new System.Drawing.Point(19, 122);
-			this.btnManageTemplates.Name = "btnManageTemplates";
-			this.btnManageTemplates.Size = new System.Drawing.Size(193, 24);
-			this.btnManageTemplates.TabIndex = 3;
-			this.btnManageTemplates.Text = "Manage Templates...";
-			this.btnManageTemplates.UseVisualStyleBackColor = true;
-			this.btnManageTemplates.Click += new System.EventHandler(this.btnManageTemplates_Click);
-			// 
 			// NewProblemForm
 			// 
 			this.AcceptButton = this.btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(881, 260);
+			this.ClientSize = new System.Drawing.Size(621, 260);
 			this.Controls.Add(this.panelExistingFile);
 			this.Controls.Add(this.panelNewFile);
 			this.Controls.Add(this.btnCancel);
@@ -229,6 +231,8 @@
 			this.Controls.Add(this.gbProblemSource);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.txtContestName);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.MaximizeBox = false;
 			this.Name = "NewProblemForm";
 			this.Text = "New Problem";
 			this.Load += new System.EventHandler(this.NewProblemForm_Load);

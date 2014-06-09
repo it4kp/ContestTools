@@ -126,6 +126,8 @@
 			this.Controls.Add(this.btnSelectRootDirectory);
 			this.Controls.Add(this.txtProblemRootDirectory);
 			this.Controls.Add(this.label1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.MaximizeBox = false;
 			this.Name = "SettingsForm";
 			this.Text = "Contest Tools Settings";
 			this.Load += new System.EventHandler(this.SettingsForm_Load);

@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ContestToolsAddIn.Forms
 {
 	public partial class NewProblemForm : Form
 	{
-		private SettingsXml _settings;
+		private readonly SettingsXml _settings;
 
 		public NewProblemForm( SettingsXml settings )
 		{
@@ -31,6 +27,7 @@ namespace ContestToolsAddIn.Forms
 		private void LoadData()
 		{
 			txtContestName.Text = _settings.LatestContestName;
+			txtContestName.AutoCompleteCustomSource = GetContestNames();
 			LoadTemplates();
 			var selectedItem =
 				cbTemplate.Items.Cast<ProblemTemplate>().FirstOrDefault( t => t.Name == _settings.LatestTemplateName );
@@ -41,6 +38,19 @@ namespace ContestToolsAddIn.Forms
 				rbExistingFile.Checked = true;
 				NewProblemForm_RadioButtonChange( this, null );
 			}
+		}
+
+		private AutoCompleteStringCollection GetContestNames()
+		{
+			var result = new AutoCompleteStringCollection();
+
+			if ( !string.IsNullOrEmpty( _settings.ProblemsRootDirectory ) && Directory.Exists( _settings.ProblemsRootDirectory ) )
+			{
+				result.AddRange( Directory.GetDirectories( _settings.ProblemsRootDirectory, "*", SearchOption.TopDirectoryOnly )
+					.Select( Path.GetFileName ).ToArray() );
+			}
+
+			return result;
 		}
 
 		private void LoadTemplates()
