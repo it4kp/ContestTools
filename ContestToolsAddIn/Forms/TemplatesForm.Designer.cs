@@ -29,16 +29,15 @@
 		private void InitializeComponent()
 		{
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.lvTemplates = new System.Windows.Forms.ListView();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.tbNew = new System.Windows.Forms.ToolStripButton();
 			this.tbDelete = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.tbSave = new System.Windows.Forms.ToolStripButton();
-			this.rtbTemplateSource = new System.Windows.Forms.RichTextBox();
+			this.lvTemplates = new System.Windows.Forms.ListView();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
-			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -53,33 +52,9 @@
 			// 
 			this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
 			this.splitContainer1.Panel1.Controls.Add(this.lvTemplates);
-			// 
-			// splitContainer1.Panel2
-			// 
-			this.splitContainer1.Panel2.Controls.Add(this.rtbTemplateSource);
 			this.splitContainer1.Size = new System.Drawing.Size(980, 589);
 			this.splitContainer1.SplitterDistance = 326;
 			this.splitContainer1.TabIndex = 1;
-			// 
-			// lvTemplates
-			// 
-			this.lvTemplates.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.lvTemplates.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-			this.lvTemplates.FullRowSelect = true;
-			this.lvTemplates.GridLines = true;
-			this.lvTemplates.HideSelection = false;
-			this.lvTemplates.LabelEdit = true;
-			this.lvTemplates.Location = new System.Drawing.Point(3, 28);
-			this.lvTemplates.MultiSelect = false;
-			this.lvTemplates.Name = "lvTemplates";
-			this.lvTemplates.Size = new System.Drawing.Size(320, 558);
-			this.lvTemplates.TabIndex = 1;
-			this.lvTemplates.UseCompatibleStateImageBehavior = false;
-			this.lvTemplates.View = System.Windows.Forms.View.Details;
-			this.lvTemplates.SelectedIndexChanged += new System.EventHandler(this.lvTemplates_SelectedIndexChanged);
 			// 
 			// toolStrip1
 			// 
@@ -101,7 +76,7 @@
 			this.tbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tbNew.Name = "tbNew";
 			this.tbNew.Size = new System.Drawing.Size(23, 22);
-			this.tbNew.Text = "toolStripButton1";
+			this.tbNew.Text = "Add template";
 			this.tbNew.Click += new System.EventHandler(this.tbNew_Click);
 			// 
 			// tbDelete
@@ -111,7 +86,7 @@
 			this.tbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tbDelete.Name = "tbDelete";
 			this.tbDelete.Size = new System.Drawing.Size(23, 22);
-			this.tbDelete.Text = "toolStripButton3";
+			this.tbDelete.Text = "Delete template";
 			this.tbDelete.Click += new System.EventHandler(this.tbDelete_Click);
 			// 
 			// toolStripSeparator1
@@ -122,21 +97,32 @@
 			// tbSave
 			// 
 			this.tbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tbSave.Image = global::ContestToolsAddIn.Properties.Resources.accept;
+			this.tbSave.Image = global::ContestToolsAddIn.Properties.Resources.document_save_5;
 			this.tbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tbSave.Name = "tbSave";
 			this.tbSave.Size = new System.Drawing.Size(23, 22);
-			this.tbSave.Text = "toolStripButton4";
+			this.tbSave.Text = "Save template";
 			this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
 			// 
-			// rtbTemplateSource
+			// lvTemplates
 			// 
-			this.rtbTemplateSource.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rtbTemplateSource.Location = new System.Drawing.Point(0, 0);
-			this.rtbTemplateSource.Name = "rtbTemplateSource";
-			this.rtbTemplateSource.Size = new System.Drawing.Size(650, 589);
-			this.rtbTemplateSource.TabIndex = 0;
-			this.rtbTemplateSource.Text = "";
+			this.lvTemplates.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.lvTemplates.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+			this.lvTemplates.FullRowSelect = true;
+			this.lvTemplates.GridLines = true;
+			this.lvTemplates.HideSelection = false;
+			this.lvTemplates.LabelEdit = true;
+			this.lvTemplates.Location = new System.Drawing.Point(3, 28);
+			this.lvTemplates.MultiSelect = false;
+			this.lvTemplates.Name = "lvTemplates";
+			this.lvTemplates.Size = new System.Drawing.Size(320, 558);
+			this.lvTemplates.TabIndex = 1;
+			this.lvTemplates.UseCompatibleStateImageBehavior = false;
+			this.lvTemplates.View = System.Windows.Forms.View.Details;
+			this.lvTemplates.SelectedIndexChanged += new System.EventHandler(this.lvTemplates_SelectedIndexChanged);
 			// 
 			// columnHeader1
 			// 
@@ -154,7 +140,7 @@
 			this.Load += new System.EventHandler(this.TemplatesForm_Load);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.PerformLayout();
-			this.splitContainer1.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
@@ -172,6 +158,5 @@
 		private System.Windows.Forms.ToolStripButton tbSave;
 		private System.Windows.Forms.ListView lvTemplates;
 		private System.Windows.Forms.ColumnHeader columnHeader1;
-		private System.Windows.Forms.RichTextBox rtbTemplateSource;
 	}
 }

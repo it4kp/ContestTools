@@ -105,7 +105,19 @@ namespace ContestToolsAddIn.Properties {
                 return ResourceManager.GetString("Connect_OnConnection_Error_during_initializing_ContestTools_add_in__", resourceCulture);
             }
         }
-        
+
+				/// <summary>
+				///   Looks up a localized resource of type System.Drawing.Bitmap.
+				/// </summary>
+				internal static System.Drawing.Bitmap document_save_5
+				{
+					get
+					{
+						object obj = ResourceManager.GetObject( "document-save-5", resourceCulture );
+						return ( (System.Drawing.Bitmap)( obj ) );
+					}
+				}
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>

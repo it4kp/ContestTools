@@ -7,6 +7,7 @@ namespace ContestToolsAddIn.Forms
 	public partial class TemplatesForm : Form
 	{
 		private readonly SettingsXml _settings;
+		private readonly ScintillaNET.Scintilla _rtbTemplateSource;
 
 		public TemplatesForm( SettingsXml settings )
 		{
@@ -15,6 +16,13 @@ namespace ContestToolsAddIn.Forms
 
 			_settings = settings;
 			InitializeComponent();
+
+			_rtbTemplateSource = new ScintillaNET.Scintilla
+			{
+				Parent = splitContainer1.Panel2,
+				ConfigurationManager = { Language = "cs" },
+				Dock = DockStyle.Fill
+			};
 		}
 
 		private void TemplatesForm_Load( object sender, EventArgs e )
@@ -35,11 +43,11 @@ namespace ContestToolsAddIn.Forms
 		{
 			if ( lvTemplates.SelectedItems.Count == 0 )
 			{
-				rtbTemplateSource.Text = string.Empty;
+				_rtbTemplateSource.Text = string.Empty;
 			}
 			else
 			{
-				rtbTemplateSource.Text = (string)lvTemplates.SelectedItems[0].Tag;
+				_rtbTemplateSource.Text = (string)lvTemplates.SelectedItems[0].Tag;
 			}
 		}
 
@@ -65,7 +73,7 @@ namespace ContestToolsAddIn.Forms
 		{
 			if ( lvTemplates.SelectedItems.Count > 0 )
 			{
-				lvTemplates.SelectedItems[0].Tag = rtbTemplateSource.Text;
+				lvTemplates.SelectedItems[0].Tag = _rtbTemplateSource.Text;
 			}
 			var templates = new List<ProblemTemplate>();
 			foreach ( ListViewItem item in lvTemplates.Items )

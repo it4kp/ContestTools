@@ -148,6 +148,11 @@
               Looks up a localized string similar to Error during initializing ContestTools add-in. .
             </summary>
         </member>
+        <member name="P:ContestToolsAddIn.Properties.Resources.document_save_5">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:ContestToolsAddIn.Properties.Resources.delete">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
