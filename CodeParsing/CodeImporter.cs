@@ -98,12 +98,12 @@ namespace CodeParsing
 			return builder.ToString();
 		}
 
-		private List<CodeImportNodeBase> GetChildrenNodes( SyntaxNode root, CSharpCompilation compilation,
+		private HashSet<CodeImportNodeBase> GetChildrenNodes( SyntaxNode root, CSharpCompilation compilation,
 			CodeImportNodeBase importNode )
 		{
 			if ( importNode != null && _globalNodeCache.ContainsKey( importNode.Location ) )
 				return importNode.Children;
-			var result = new List<CodeImportNodeBase>();
+			var result = new HashSet<CodeImportNodeBase>();
 			if ( importNode != null )
 			{
 				_globalNodeCache.Add( importNode.Location, importNode );
@@ -119,7 +119,7 @@ namespace CodeParsing
 					var symbolLocation = new CodeLocation( info.Symbol.DeclaringSyntaxReferences[0].SyntaxTree.FilePath,
 						info.Symbol.DeclaringSyntaxReferences[0].Span );
 					var needImport = info.Symbol.ContainingAssembly.Identity.Name == Constants.DynamicAssemblyName
-						&& info.Symbol.DeclaringSyntaxReferences[0].SyntaxTree.FilePath != _thisPath;
+						&& info.Symbol.DeclaringSyntaxReferences[0].SyntaxTree.FilePath != _thisPath && info.Symbol.CanBeReferencedByName;
 					if ( needImport )
 					{
 						CodeImportNodeBase child = null;
@@ -127,6 +127,7 @@ namespace CodeParsing
 						if ( info.Symbol.IsStatic && info.Symbol.Kind == SymbolKind.Method &&
 							info.Symbol.ContainingType.IsStatic )
 						{
+							// Static method of a static class
 							child = new StaticClassMemberNode
 							{
 								Location = symbolLocation,
@@ -139,7 +140,7 @@ namespace CodeParsing
 						else if ( info.Symbol.IsStatic && info.Symbol.Kind == SymbolKind.Field &&
 							info.Symbol.ContainingType.IsStatic )
 						{
-
+							// Static field (constant) of a static class
 							child = new StaticClassMemberNode
 							{
 								Location = new CodeLocation( info.Symbol.DeclaringSyntaxReferences[0].SyntaxTree.FilePath,
@@ -150,8 +151,9 @@ namespace CodeParsing
 							};
 							childNode = info.Symbol.DeclaringSyntaxReferences[0].GetSyntax();
 						}
-						else if ( info.Symbol.ContainingType != null && info.Symbol.Kind == SymbolKind.Method )
+						else if ( info.Symbol.ContainingType != null && info.Symbol.Kind == SymbolKind.Method && info.Symbol.ContainingType.DeclaredAccessibility == Accessibility.Public )
 						{
+							// Method of a public non-static class
 							child = new NonStaticClassNode
 							{
 								Location = new CodeLocation( info.Symbol.DeclaringSyntaxReferences[0].SyntaxTree.FilePath,
@@ -161,8 +163,9 @@ namespace CodeParsing
 							};
 							childNode = info.Symbol.DeclaringSyntaxReferences[0].GetSyntax().Parent;
 						}
-						else if ( info.Symbol.Kind == SymbolKind.NamedType && !info.Symbol.IsStatic )
+						else if ( info.Symbol.Kind == SymbolKind.NamedType && !info.Symbol.IsStatic && info.Symbol.DeclaredAccessibility == Accessibility.Public )
 						{
+							// Public non-static class
 							child = new NonStaticClassNode
 							{
 								Location = symbolLocation,
@@ -190,7 +193,7 @@ namespace CodeParsing
 		}
 
 		private string _thisPath;
-		private List<CodeImportNodeBase> GetCodeImportNodes( string sourceCode )
+		private HashSet<CodeImportNodeBase> GetCodeImportNodes( string sourceCode )
 		{
 			_thisPath = Guid.NewGuid() + ".cs";
 			var tree = CSharpSyntaxTree.ParseText( sourceCode, _thisPath );

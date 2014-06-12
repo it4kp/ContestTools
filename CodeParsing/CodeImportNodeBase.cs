@@ -7,7 +7,7 @@ namespace CodeParsing
 	{
 		public CodeLocation Location { get; set; }
 
-		public List<CodeImportNodeBase> Children { get; set; }
+		public HashSet<CodeImportNodeBase> Children { get; set; }
 
 		public string Name { get; set; }
 
