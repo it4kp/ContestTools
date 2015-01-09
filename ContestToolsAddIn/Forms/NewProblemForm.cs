@@ -126,15 +126,25 @@ namespace ContestToolsAddIn.Forms
 			{
 				SourceFileName = Path.Combine( dir, txtProblemName.Text + ".cs" );
 				var template = (ProblemTemplate)cbTemplate.SelectedItem;
-				using ( var stream = File.Create( SourceFileName ) )
-				using ( var writer = new StreamWriter( stream ) )
-					writer.Write( template.Code );
 				SubmitFileName = Path.Combine( Path.Combine( _settings.ProblemsRootDirectory, "_submit" ), txtContestName.Text );
 				if ( !Directory.Exists( SubmitFileName ) )
 					Directory.CreateDirectory( SubmitFileName );
 				SubmitFileName = Path.Combine( SubmitFileName, txtProblemName.Text + ".cs" );
+
+				using ( var stream = File.Create( SourceFileName ) )
+				using ( var writer = new StreamWriter( stream ) )
+					writer.Write( MakeAllReplacements( template.Code ) );
 			}
 			AppendPreamble();
+		}
+
+		private string MakeAllReplacements( string code )
+		{
+			const string OUT_FILE_MARKER = "%CONTEST_TOOL_SUBMIT_FILE%";
+
+			code = code.Replace( OUT_FILE_MARKER, SubmitFileName );
+
+			return code;
 		}
 
 		private void AppendPreamble()
